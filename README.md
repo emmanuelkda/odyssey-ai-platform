@@ -60,4 +60,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
 
-Visit: http://127.0.0.1:8000
+Once running, open:
+
+👉 **[http://127.0.0.1:8000](http://127.0.0.1:8000)**
+
