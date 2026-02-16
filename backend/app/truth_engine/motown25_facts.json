@@ -1,0 +1,66 @@
+{
+  "event": {
+    "name": "Motown 25: Yesterday, Today, Forever",
+    "date": "March 25, 1983",
+    "aired_date": "May 16, 1983",
+    "location": "Pasadena Civic Auditorium, Pasadena, California"
+  },
+  "songs": [
+    {
+      "title": "The Love You Save",
+      "performed_by": "Michael Jackson (with Jacksons)",
+      "order": 33,
+      "notes": "Part of the Jacksons medley"
+    },
+    {
+      "title": "I Want You Back",
+      "performed_by": "Michael Jackson (with Jacksons)",
+      "order": 34,
+      "notes": "Medley continuation"
+    },
+    {
+      "title": "I'll Be There",
+      "performed_by": "Michael Jackson (with Jacksons)",
+      "order": 35,
+      "notes": "Classic Jackson 5 ballad"
+    },
+    {
+      "title": "Billie Jean",
+      "performed_by": "Michael Jackson",
+      "order": 36,
+      "notes": "Legendary solo debut; moonwalk performance"
+    },
+    {
+      "title": "My Girl",
+      "performed_by": "The Temptations",
+      "order": 7
+    },
+    {
+      "title": "Ain't Too Proud to Beg",
+      "performed_by": "The Temptations",
+      "order": 8
+    },
+    {
+      "title": "Shop Around",
+      "performed_by": "Smokey Robinson & The Miracles",
+      "order": 4
+    }
+  ],
+  "people": [
+    {
+      "name": "Michael Jackson",
+      "role": "Performer",
+      "notable_moments": ["Debut of the moonwalk", "Billie Jean live solo performance"]
+    },
+    {
+      "name": "Berry Gordy",
+      "role": "Creator of Motown Records",
+      "notable_moments": ["Honored during event", "Emotional reaction to MJ's performance"]
+    },
+    {
+      "name": "Smokey Robinson",
+      "role": "Performer"
+    }
+  ]
+}
+

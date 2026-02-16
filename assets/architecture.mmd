@@ -1,0 +1,26 @@
+flowchart TD
+
+    U[User Input]
+
+    IR[Intent Router]
+    RB[Router Brain]
+
+    TE[Truth Engine]
+    NPC[Agent Runtime - NPC Brain OS]
+    TS[Temporal State Engine]
+
+    EV[Evaluation and Guardrails]
+    OUT[Final Response]
+
+    U --> IR
+    IR --> RB
+
+    RB --> TE
+    RB --> NPC
+    RB --> TS
+
+    TE --> EV
+    NPC --> EV
+    TS --> EV
+
+    EV --> OUT

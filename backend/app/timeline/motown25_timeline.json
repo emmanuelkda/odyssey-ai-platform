@@ -1,0 +1,66 @@
+[
+  {
+    "id": "show_start",
+    "t": 0,
+    "type": "SHOW_EVENT",
+    "tags": ["intro", "audience", "motown25"],
+    "description": "The lights dim and the Motown 25 special begins. The audience settles and applause rises.",
+    "npc_reactions": ["anticipation", "light_applause"]
+  },
+  {
+    "id": "jackson5_medley",
+    "t": 900,
+    "type": "PERFORMANCE_EVENT",
+    "tags": ["jackson5", "medley"],
+    "description": "The Jackson 5 take the stage for a nostalgic medley of their classic hits.",
+    "npc_reactions": ["joy", "sing_along", "clap_rhythm"]
+  },
+  {
+    "id": "michael_solo_transition",
+    "t": 1700,
+    "type": "TRANSITION_EVENT",
+    "tags": ["michael_jackson", "transition"],
+    "description": "After the Jackson 5 performance, the stage clears as Michael prepares for his solo performance.",
+    "npc_reactions": ["curiosity", "whispers"]
+  },
+  {
+    "id": "billie_jean_intro",
+    "t": 1820,
+    "type": "PERFORMANCE_EVENT",
+    "tags": ["michael_jackson", "billie_jean", "entrance"],
+    "description": "Michael Jackson walks onto the stage to perform Billie Jean, wearing his iconic fedora and sequined jacket.",
+    "npc_reactions": ["huge_applause", "screams", "standing"]
+  },
+  {
+    "id": "billie_jean_verse",
+    "t": 1870,
+    "type": "PERFORMANCE_EVENT",
+    "tags": ["michael_jackson", "billie_jean"],
+    "description": "Michael begins singing Billie Jean, gliding across the stage with precise, rhythmic movements.",
+    "npc_reactions": ["entranced", "grooving"]
+  },
+  {
+    "id": "billie_jean_moonwalk",
+    "t": 1935,
+    "type": "PERFORMANCE_EVENT",
+    "tags": ["michael_jackson", "billie_jean", "moonwalk"],
+    "description": "During the Billie Jean performance, Michael performs the moonwalk for the first time on television, electrifying the audience.",
+    "npc_reactions": ["shock", "screaming", "ecstatic"]
+  },
+  {
+    "id": "billie_jean_outro",
+    "t": 1990,
+    "type": "PERFORMANCE_EVENT",
+    "tags": ["michael_jackson", "billie_jean", "ending"],
+    "description": "Michael hits his final pose for Billie Jean as the music fades and the crowd roars.",
+    "npc_reactions": ["sustained_applause", "cheering"]
+  },
+  {
+    "id": "show_end",
+    "t": 3600,
+    "type": "SHOW_EVENT",
+    "tags": ["ending", "credits"],
+    "description": "The Motown 25 special concludes and the audience gives a final round of applause as the credits roll.",
+    "npc_reactions": ["satisfied_applause"]
+  }
+]

@@ -1,0 +1,114 @@
+# backend/app/router_brain.py
+
+from backend.app.intent_router import Intent
+from backend.app.npc.npc_brain import handle_npc_interaction
+from backend.app.brains.navigation import handle_navigation
+from backend.app.brains.smalltalk import handle_smalltalk
+from backend.app.brains.history import HistoricalQuestionHandler
+from backend.app.brains.performance import handle_performance_question
+from backend.app.brains.system import handle_system_command
+from backend.app.timeline.reaction_store import get_latest_reactions
+
+
+historical_handler = HistoricalQuestionHandler()
+
+
+def _wrap(
+    text: str,
+    npc_reactions=None,
+    metadata=None,
+):
+    """Canonical engine response wrapper."""
+    return {
+        "text": text,
+        "npc_reactions": npc_reactions,
+        "metadata": metadata,
+    }
+
+
+def route_message(message: str, intent: Intent):
+    """
+    Routes the message to the correct subsystem based on the intent.
+    Always returns a normalized engine response.
+    """
+
+    # ------------------------------
+    # Historical facts
+    # ------------------------------
+    if intent == Intent.ASK_HISTORICAL_QUESTION:
+        text = historical_handler.answer_fact_question(message)
+        return _wrap(text)
+
+    # ------------------------------
+    # Timeline-aware questions
+    # ------------------------------
+    elif intent == Intent.ASK_WHATS_HAPPENING_NOW:
+        return _wrap(
+            text=historical_handler.answer_now(),
+            npc_reactions=get_latest_reactions(),
+            metadata={"scope": "timeline_now"},
+        )
+
+    elif intent == Intent.ASK_WHATS_NEXT:
+        return _wrap(
+            text=historical_handler.answer_next(),
+            npc_reactions=get_latest_reactions(),
+            metadata={"scope": "timeline_next"},
+        )
+
+    elif intent == Intent.ASK_WHAT_JUST_HAPPENED:
+        return _wrap(
+            text=historical_handler.answer_previous(),
+            npc_reactions=get_latest_reactions(),
+            metadata={"scope": "timeline_previous"},
+        )
+
+    elif intent == Intent.ASK_SHOW_PROGRESS:
+        return _wrap(
+            text=historical_handler.answer_progress(),
+            npc_reactions=get_latest_reactions(),
+            metadata={"scope": "timeline_progress"},
+        )
+
+    # ------------------------------
+    # NPC interactions
+    # ------------------------------
+    elif intent == Intent.ASK_NPC:
+        text = handle_npc_interaction(message)
+        return _wrap(text, metadata={"scope": "npc"})
+
+    # ------------------------------
+    # Navigation
+    # ------------------------------
+    elif intent == Intent.NAVIGATION:
+        text = handle_navigation(message)
+        return _wrap(text, metadata={"scope": "navigation"})
+
+    # ------------------------------
+    # Smalltalk
+    # ------------------------------
+    elif intent == Intent.SMALLTALK:
+        text = handle_smalltalk(message)
+        return _wrap(text, metadata={"scope": "smalltalk"})
+
+    # ------------------------------
+    # Performance-specific question
+    # ------------------------------
+    elif intent == Intent.PERFORMANCE_QUESTION:
+        text = handle_performance_question(message)
+        return _wrap(text, metadata={"scope": "performance"})
+
+    # ------------------------------
+    # System commands
+    # ------------------------------
+    elif intent == Intent.SYSTEM_COMMAND:
+        text = handle_system_command(message)
+        return _wrap(text, metadata={"scope": "system"})
+
+    # ------------------------------
+    # Fallback
+    # ------------------------------
+    return _wrap(
+        "I'm not sure how to answer that yet.",
+        metadata={"scope": "fallback"},
+    )
