@@ -31,12 +31,8 @@ This repo is a curated, runnable reference implementation designed for **applied
 
 ## Case Studies
 
-- **Case Study #1:** Epistemic Control & Hallucination Prevention  
-  - `case-studies/case-study-1-epistemic-control.md`
-
-- **Case Study #2:** Temporal Reasoning & Stateful Intelligence  
-  - `case-studies/case-study-2-temporal-state.md`
-
+- **Case Study #1: Epistemic Control & Hallucination Prevention** — [Read](case-studies/case-study-1-epistemic-control.md)
+- **Case Study #2: Temporal Reasoning & Stateful Intelligence** — [Read](case-studies/case-study-2-temporal-state.md)
 
 User Input
    |
