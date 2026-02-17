@@ -52,13 +52,22 @@ Intent Router  --->  Router Brain
 
 ## Quickstart (Local)
 
+### Prereqs
+- Python 3.10+ recommended (3.11 works great)
+- An OpenAI API key
+
 ### 1) Setup
+
 ```bash
+git clone https://github.com/emmanuelkda/odyssey-ai-platform.git
 cd odyssey-ai-platform
+
 python -m venv .venv
 source .venv/bin/activate
+
 pip install -r requirements.txt
 cp .env.example .env
+
 ```
 Once running, open:
 
